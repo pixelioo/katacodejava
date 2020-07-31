@@ -49,14 +49,10 @@ class GildedRose {
      * @param item Other item than the Backstage, Aged Brie conjured Sulfuras
      */
     private void otherItems(Item item) {
-        if (item.getQuality() > 0) {
-            item.setQuality(item.getQuality() - 1);
-        }
+        decreaseQuality(item);
         decreaseSellIn(item);
         if (item.getSellIn() < 0) {
-            if (item.getQuality() > 0) {//et la qualité plus grand que 0
-                item.setQuality(item.getQuality() - 1);
-            }
+            decreaseQuality(item);
         }
     }
 
@@ -67,13 +63,20 @@ class GildedRose {
      */
     private void conjuredItem(Item item) {
         decreaseSellIn(item);
+        decreaseQuality(item);
+        if (item.getSellIn() < 0) {
+            decreaseQuality(item); //et la qualité plus grand que 0
+        }
+    }
+
+    /**
+     * Decrease Quality if the quality is above 0
+     *
+     * @param item The item that need to decrease the quality
+     */
+    private void decreaseQuality(Item item) {
         if (item.getQuality() > 0) {
             item.setQuality(item.getQuality() - 1);
-        }
-        if (item.getSellIn() < 0) {
-            if (item.getQuality() > 0) {//et la qualité plus grand que 0
-                item.setQuality(item.getQuality() - 1);
-            }
         }
     }
 
