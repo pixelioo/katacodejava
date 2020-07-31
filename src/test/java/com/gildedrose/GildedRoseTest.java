@@ -12,7 +12,7 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("foo", 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        assertEquals("foo", app.items[0].getName());
     }
 
     @Test
@@ -20,7 +20,7 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("tomatoes", 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        Assertions.assertNotEquals("foo", app.items[0].name);
+        Assertions.assertNotEquals("foo", app.items[0].getName());
     }
 
     @Test
@@ -28,7 +28,7 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("tomatoes", 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("tomatoes", app.items[0].name);
+        assertEquals("tomatoes", app.items[0].getName());
     }
     
     @Test
@@ -36,14 +36,14 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("tomatoes", 10, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(10, app.items[0].sellIn);
+        assertEquals(10, app.items[0].getSellIn());
     }
      @Test
     void cannotSellTomatoes() {
         Item[] items = new Item[]{new Item("tomatoes", 0, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(0, app.items[0].sellIn);
+        assertEquals(0, app.items[0].getSellIn());
     }
     
     @Test
@@ -51,13 +51,13 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("tomatoes", 10, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(10, app.items[0].quality);
+        assertEquals(10, app.items[0].getQuality());
     }
       @Test
     void isTomatoesBadQuality() {
         Item[] items = new Item[]{new Item("tomatoes", 10, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(0, app.items[0].quality);
+        assertEquals(0, app.items[0].getQuality());
     }
 }
