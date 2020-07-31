@@ -45,4 +45,19 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(0, app.items[0].sellIn);
     }
+    
+    @Test
+    void isTomatoesGoodQuality() {
+        Item[] items = new Item[]{new Item("tomatoes", 10, 10)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(10, app.items[0].quality);
+    }
+      @Test
+    void isTomatoesBadQuality() {
+        Item[] items = new Item[]{new Item("tomatoes", 10, 10)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0, app.items[0].quality);
+    }
 }
