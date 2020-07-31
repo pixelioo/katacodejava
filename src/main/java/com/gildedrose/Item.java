@@ -1,11 +1,17 @@
 package com.gildedrose;
 
 public class Item {
-
+    /**
+     * The name of the item
+     */
     private String name;
-
+    /**
+     * The maximum day to sell the item
+     */
     private int sellIn;
-
+    /**
+     * The quality of the item
+     */
     private int quality;
 
     public Item(String name, int sellIn, int quality) {
